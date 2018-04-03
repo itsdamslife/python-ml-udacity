@@ -245,3 +245,99 @@ for country in country_list:
         country_counts[country] = 1
 
 print(country_counts)
+
+
+def most_prolific(discs):
+    years = {}
+    maxyears = []
+    maxnumber = 0
+    for disc in discs:
+        year = discs[disc]
+        if year in years:
+            years[year] += 1
+        else:
+            years[year] = 1
+    for year in years:
+        if years[year] > maxnumber:
+            maxyears = []
+            maxyears.append(year)
+            maxnumber = years[year]
+        elif years[year] == maxnumber and not (year in maxyears):
+            maxyears.append(year)
+    if (len(maxyears) == 1):
+        return maxyears[0]
+    else:
+        return maxyears
+
+
+Beatles_Discography = {
+    "Please Please Me": 1963,
+    "With the Beatles": 1963,
+    "A Hard Day's Night": 1964,
+    "Beatles for Sale": 1964,
+    "Twist and Shout": 1964,
+    "Help": 1965,
+    "Rubber Soul": 1965,
+    "Revolver": 1966,
+    "Sgt. Pepper's Lonely Hearts Club Band": 1967,
+    "Magical Mystery Tour": 1967,
+    "The Beatles": 1968,
+    "Yellow Submarine": 1969,
+    'Abbey Road': 1969,
+    "Let It Be": 1970
+}
+
+print(most_prolific(Beatles_Discography))
+
+# COMPOUND DATASTRUCTURES
+elements = {
+    'hydrogen': {
+        'number': 1,
+        'weight': 1.00794,
+        'symbol': 'H',
+        'is_noble_gas': False
+    },
+    'helium': {
+        'number': 2,
+        'weight': 4.002602,
+        'symbol': 'He',
+        'is_noble_gas': True
+    }
+}
+
+print(elements['hydrogen']['is_noble_gas'])
+print(elements['helium']['is_noble_gas'])
+
+
+def sum_of_array(array):
+    total_sum = 0
+    for element in array:
+        total_sum += element
+    return total_sum
+
+
+def total_takings(monthly_takings):
+    yearly_sum = 0
+    for month in monthly_takings:
+        yearly_sum += sum_of_array(monthly_takings[month]) # can be replaced by built in function --> sum([1,2,3])
+    return yearly_sum
+
+
+monthly_takings = {
+    'January': [54, 63],
+    'February': [64, 60],
+    'March': [63, 49],
+    'April': [57, 42],
+    'May': [55, 37],
+    'June': [34, 32],
+    'July': [69, 41, 32],
+    'August': [40, 61, 40],
+    'September': [51, 62],
+    'October': [34, 58, 45],
+    'November': [67, 44],
+    'December': [41, 58]
+}
+
+ys = total_takings(monthly_takings)
+print(ys)
+
