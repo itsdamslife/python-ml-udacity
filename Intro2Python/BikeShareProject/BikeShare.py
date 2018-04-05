@@ -223,3 +223,77 @@ city_info = {'Washington': {'in_file': './data/Washington-CapitalBikeshare-2016.
 for city, filenames in city_info.items():
     condense_data(filenames['in_file'], filenames['out_file'], city)
     print_first_point(filenames['out_file'])
+
+# Exploratory Data Analysis
+
+
+def number_of_trips(filename):
+    """
+    This function reads in a file with trip data and reports the number of
+    trips made by subscribers, customers, and total overall.
+    """
+    with open(filename, 'r') as f_in:
+        # set up csv reader object
+        reader = csv.DictReader(f_in)
+
+        # initialize count variables
+        n_subscribers = 0
+        n_customers = 0
+
+        # tally up ride types
+        for row in reader:
+            if row['user_type'] == 'Subscriber':
+                n_subscribers += 1
+            else:
+                n_customers += 1
+
+        # compute total number of rides
+        n_total = n_subscribers + n_customers
+
+        # return tallies as a tuple
+        return(n_subscribers, n_customers, n_total)
+
+# testing functions
+def largest_among(washington, chicago, nyc):
+    print("W={}; C={}; NYC={}".format(washington, chicago, nyc))
+    if washington > chicago:
+        if washington > nyc:
+            print("Washington")
+        else:
+            print("NYC")
+    else:
+        if chicago > nyc:
+            print("Chicago")
+        else:
+            print("NYC")
+
+
+washington_summary_file = './data/Washington-2016-Summary.csv'
+w_trip_details = number_of_trips(washington_summary_file)
+
+chicago_summary_file = './data/Chicago-2016-Summary.csv'
+c_trip_details = number_of_trips(chicago_summary_file)
+
+nyc_summary_file = './data/NYC-2016-Summary.csv'
+nyc_trip_details = number_of_trips(nyc_summary_file)
+
+# highest total number of trips
+w_trip = w_trip_details[0]
+c_trip = c_trip_details[0]
+nyc_trip = nyc_trip_details[0]
+largest_among(w_trip, c_trip, nyc_trip)
+
+# highest subscribers
+w_trip = w_trip_details[1]
+c_trip = c_trip_details[1]
+nyc_trip = nyc_trip_details[1]
+largest_among(w_trip, c_trip, nyc_trip)
+
+# highest customers
+w_trip = w_trip_details[2]
+c_trip = c_trip_details[2]
+nyc_trip = nyc_trip_details[2]
+largest_among(w_trip, c_trip, nyc_trip)
+
+data_file = './examples/BayArea-Y3-Summary.csv'
+print(number_of_trips(data_file))
