@@ -127,7 +127,41 @@ tests = {
 }
 
 for city in tests:
-    print("========\n{}:\n{}\n==========".format(city, example_trips[city]))
+    print("========\n{}:\n{}\n==========".format(city, example_trips[city]))  # debug
     m_h_d = time_of_trip(example_trips[city], city)
     print(m_h_d)
     assert m_h_d == tests[city]
+
+# Type of the user - retrieval
+
+def type_of_user(datum, city):
+    """
+    Takes as input a dictionary containing info about a single trip (datum) and
+    its origin city (city) and returns the type of system user that made the
+    trip.
+    
+    Remember that Washington has different category names compared to Chicago
+    and NYC. 
+    """
+
+    user_type = ""
+    # 'usertype'(Subscriber or Customer) or 'Member Type'(Registered or Casual)
+    if city is "Washington":
+        user_type = "Subscriber" if datum.get("Member Type") == "Registered" else "Customer"
+    else:
+        user_type = datum.get("usertype")
+
+    return user_type
+
+
+# Some tests to check that your code works. There should be no output if all of
+# the assertions pass. The `example_trips` dictionary was obtained from when
+# you printed the first trip from each of the original data files.
+tests = {'NYC': 'Customer',
+         'Chicago': 'Subscriber',
+         'Washington': 'Subscriber'}
+
+for city in tests:
+    usr_typ = type_of_user(example_trips[city], city)
+    print("============={}".format(usr_typ)) # debug
+    assert usr_typ == tests[city]
