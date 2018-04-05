@@ -80,3 +80,54 @@ for city in tests:
     print("{} duration in mins : {}".format(city, duration_in_min))
     assert abs(duration_in_min - tests[city]) < .001
 
+
+def time_of_trip(datum, city):
+    """
+    Takes as input a dictionary containing info about a single trip (datum) and
+    its origin city (city) and returns the month, hour, and day of the week in
+    which the trip was made.
+    
+    Remember that NYC includes seconds, while Washington and Chicago do not.
+    
+    HINT: You should use the datetime module to parse the original date
+    strings into a format that is useful for extracting the desired information.
+    see https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+    """
+
+    month = 0
+    hour = 0
+    day_of_week = "Sunday"
+
+    date_string = ""
+    if datum.get("starttime") is not None:
+        date_string = datum["starttime"]  # 1/1/2016 00:09:55, 3/31/2016 23:30
+    elif datum.get("Start date") is not None:
+        date_string = datum["Start date"]  # 3/31/2016 22:57
+
+    # if there is no seconds parameter in the string add ':00' to it
+    if date_string[-6] is not ':':
+        date_string += ":00"
+    
+    date_time_object = datetime.strptime(date_string, "%m/%d/%Y %H:%M:%S")
+
+    month = int(date_time_object.strftime('%m'))
+    hour = int(date_time_object.strftime('%H'))
+    day_of_week = date_time_object.strftime('%A')
+    
+    return (month, hour, day_of_week)
+
+
+# Some tests to check that your code works. There should be no output if all of
+# the assertions pass. The `example_trips` dictionary was obtained from when
+# you printed the first trip from each of the original data files.
+tests = {
+    'NYC': (1, 0, 'Friday'),
+    'Chicago': (3, 23, 'Thursday'),
+    'Washington': (3, 22, 'Thursday')
+}
+
+for city in tests:
+    print("========\n{}:\n{}\n==========".format(city, example_trips[city]))
+    m_h_d = time_of_trip(example_trips[city], city)
+    print(m_h_d)
+    assert m_h_d == tests[city]
