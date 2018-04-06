@@ -362,3 +362,34 @@ if avg_long_ride_duration_by_subscriber > avg_long_ride_duration_by_customer:
     print("In NYC, Subscribers do more longer rides than Customers")
 else:
     print("In NYC, Customers do more longer rides than Subscribers")
+
+# Plot the data in a histogram
+def get_ride_time_date(filename):
+    """
+    This function reads in a file with trip data and reports the number of
+    trips made by subscribers, customers, and total overall.
+    """
+    with open(filename, 'r') as f_in:
+        # set up csv reader object
+        reader = csv.DictReader(f_in)
+        ride_time_list = []
+
+        for row in reader:
+            ride_time_list.append(row['hour'])
+
+        return ride_time_list
+
+
+# for Subscriber
+nyc_summary_file = './data/NYC-2016-Summary.csv'
+ride_times = get_ride_time_date(nyc_summary_file)
+# print(ride_times)
+
+import matplotlib.pyplot as plt
+%matplotlib inline
+# http://ipython.readthedocs.io/en/stable/interactive/magics.html
+
+plt.hist(ride_times)
+plt.title('Distribution of Trip Durations')
+plt.xlabel('Duration (m)')
+plt.show()
