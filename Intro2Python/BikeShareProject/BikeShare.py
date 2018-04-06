@@ -241,9 +241,14 @@ def number_of_trips(filename):
         n_customers = 0
 
         total_duration_of_all_rides = 0.0
+        long_duration = 30.0
+        number_of_longer_duration_trips = 0
         # tally up ride types
         for row in reader:
             total_duration_of_all_rides += float(row['duration'])
+            if float(row['duration']) > long_duration:
+                number_of_longer_duration_trips += 1
+
             if row['user_type'] == 'Subscriber':
                 n_subscribers += 1
             else:
@@ -253,7 +258,7 @@ def number_of_trips(filename):
         n_total = n_subscribers + n_customers
 
         # return tallies as a tuple
-        return(n_subscribers, n_customers, n_total, total_duration_of_all_rides)
+        return(n_subscribers, n_customers, n_total, total_duration_of_all_rides, number_of_longer_duration_trips)
 
 # testing functions
 def largest_among(washington, chicago, nyc):
@@ -280,27 +285,27 @@ nyc_summary_file = './data/NYC-2016-Summary.csv'
 nyc_trip_details = number_of_trips(nyc_summary_file)
 
 # highest total number of trips
-w_trip = w_trip_details[0]
-c_trip = c_trip_details[0]
-nyc_trip = nyc_trip_details[0]
-largest_among(w_trip, c_trip, nyc_trip)
-
-# highest subscribers
-w_trip = w_trip_details[1]
-c_trip = c_trip_details[1]
-nyc_trip = nyc_trip_details[1]
-largest_among(w_trip, c_trip, nyc_trip)
-
-# highest customers
 w_trip = w_trip_details[2]
 c_trip = c_trip_details[2]
 nyc_trip = nyc_trip_details[2]
 largest_among(w_trip, c_trip, nyc_trip)
 
+# highest subscribers
+w_trip = w_trip_details[0]
+c_trip = c_trip_details[0]
+nyc_trip = nyc_trip_details[0]
+largest_among(w_trip, c_trip, nyc_trip)
+
+# highest customers
+w_trip = w_trip_details[1]
+c_trip = c_trip_details[1]
+nyc_trip = nyc_trip_details[1]
+largest_among(w_trip, c_trip, nyc_trip)
+
 data_file = './examples/BayArea-Y3-Summary.csv'
 print(number_of_trips(data_file))
 
-
+# Average trip length for each city
 average_length_of_trip = w_trip_details[3]/w_trip_details[2]
 print(average_length_of_trip)
 average_length_of_trip = c_trip_details[3]/c_trip_details[2]
@@ -308,3 +313,10 @@ print(average_length_of_trip)
 average_length_of_trip = nyc_trip_details[3]/nyc_trip_details[2]
 print(average_length_of_trip)
 
+# Longer duration proportion
+percentage_of_long_duration_trips = w_trip_details[4]*100/w_trip_details[2]
+print("Washington has {} percent of long duration trips".format(percentage_of_long_duration_trips))
+percentage_of_long_duration_trips = c_trip_details[4]*100/c_trip_details[2]
+print("Chicago has {} percent of long duration trips".format(percentage_of_long_duration_trips))
+percentage_of_long_duration_trips = nyc_trip_details[4]*100/nyc_trip_details[2]
+print("NYC has {} percent of long duration trips".format(percentage_of_long_duration_trips))
