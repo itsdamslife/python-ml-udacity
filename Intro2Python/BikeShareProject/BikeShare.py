@@ -240,8 +240,10 @@ def number_of_trips(filename):
         n_subscribers = 0
         n_customers = 0
 
+        total_duration_of_all_rides = 0.0
         # tally up ride types
         for row in reader:
+            total_duration_of_all_rides += float(row['duration'])
             if row['user_type'] == 'Subscriber':
                 n_subscribers += 1
             else:
@@ -251,7 +253,7 @@ def number_of_trips(filename):
         n_total = n_subscribers + n_customers
 
         # return tallies as a tuple
-        return(n_subscribers, n_customers, n_total)
+        return(n_subscribers, n_customers, n_total, total_duration_of_all_rides)
 
 # testing functions
 def largest_among(washington, chicago, nyc):
@@ -297,3 +299,12 @@ largest_among(w_trip, c_trip, nyc_trip)
 
 data_file = './examples/BayArea-Y3-Summary.csv'
 print(number_of_trips(data_file))
+
+
+average_length_of_trip = w_trip_details[3]/w_trip_details[2]
+print(average_length_of_trip)
+average_length_of_trip = c_trip_details[3]/c_trip_details[2]
+print(average_length_of_trip)
+average_length_of_trip = nyc_trip_details[3]/nyc_trip_details[2]
+print(average_length_of_trip)
+
