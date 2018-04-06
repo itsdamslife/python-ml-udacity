@@ -385,11 +385,11 @@ nyc_summary_file = './data/NYC-2016-Summary.csv'
 ride_times = get_ride_time_date(nyc_summary_file)
 # print(ride_times)
 
-import matplotlib.pyplot as plt
-%matplotlib inline
+# import matplotlib.pyplot as plt
+# %matplotlib inline
 # http://ipython.readthedocs.io/en/stable/interactive/magics.html
 
-plt.hist(ride_times)
-plt.title('Distribution of Trip Durations')
-plt.xlabel('Duration (m)')
-plt.show()
+# plt.hist(ride_times)
+# plt.title('Distribution of Trip Durations')
+# plt.xlabel('Duration (m)')
+# plt.show()
