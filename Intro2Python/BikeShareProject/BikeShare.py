@@ -320,3 +320,45 @@ percentage_of_long_duration_trips = c_trip_details[4]*100/c_trip_details[2]
 print("Chicago has {} percent of long duration trips".format(percentage_of_long_duration_trips))
 percentage_of_long_duration_trips = nyc_trip_details[4]*100/nyc_trip_details[2]
 print("NYC has {} percent of long duration trips".format(percentage_of_long_duration_trips))
+
+# condensing data based on user type
+def condense_data_for_long_rides(filename, usr_type):
+    """
+    This function reads in a file with trip data and reports the number of
+    trips made by subscribers, customers, and total overall.
+    """
+    with open(filename, 'r') as f_in:
+        # set up csv reader object
+        reader = csv.DictReader(f_in)
+
+        # initialize count variables
+        total_long_ride_duration = 0.0
+        total_long_rides = 0
+
+        long_duration = 30.0
+        # tally up ride types
+        for row in reader:
+            if row['user_type'] == usr_type:
+                ride_duration = float(row['duration'])
+                if ride_duration > long_duration:
+                    total_long_rides += 1
+                    total_long_ride_duration += ride_duration
+
+        # return tallies as a tuple
+        return(total_long_ride_duration, total_long_rides)
+
+
+# for Subscriber
+nyc_summary_file = './data/NYC-2016-Summary.csv'
+long_ride_analysis_for_subscriber = condense_data_for_long_rides(nyc_summary_file, 'Subscriber')
+avg_long_ride_duration_by_subscriber = long_ride_analysis_for_subscriber[0]/long_ride_analysis_for_subscriber[1]
+
+# for Customer
+long_ride_analysis_for_customer = condense_data_for_long_rides(nyc_summary_file, 'Customer')
+avg_long_ride_duration_by_customer = long_ride_analysis_for_customer[0] / long_ride_analysis_for_customer[1]
+
+print("In NYC the average Subscriber trip duration to be {} minutes and the average Customer trip duration to be {} minutes.".format(avg_long_ride_duration_by_subscriber, avg_long_ride_duration_by_customer))
+if avg_long_ride_duration_by_subscriber > avg_long_ride_duration_by_customer:
+    print("In NYC, Subscribers do more longer rides than Customers")
+else:
+    print("In NYC, Customers do more longer rides than Subscribers")
