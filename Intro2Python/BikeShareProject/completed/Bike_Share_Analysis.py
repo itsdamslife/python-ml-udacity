@@ -320,8 +320,10 @@ for city, filenames in city_info.items():
 # **Question 4a**: Which city has the highest number of trips? Which city has the highest proportion of trips made by subscribers? Which city has the highest proportion of trips made by short-term customers?
 # 
 # **Answer**: NYC has the highest number of trips. NYC has the highest proportion of trips made by subscribers. NYC has the highest proportion of trips made by short-term customers.
+# 
+# NYC has the maximum trips, the number is 276798 NYC has the highest proportion of trips made by subscribers, the pecentage is 89% (88.836%). Chicago has the highest proportion of trips made by customer, the pecentage is 24% (23.775%).
 
-# In[18]:
+# In[15]:
 
 
 def number_of_trips(filename):
@@ -340,6 +342,9 @@ def number_of_trips(filename):
         total_duration_of_all_rides = 0.0
         long_duration = 30.0
         number_of_longer_duration_trips = 0
+        len_sub_ride =0
+        len_cus_ride = 0
+        
         # tally up ride types
         for row in reader:
             total_duration_of_all_rides += float(row['duration'])
@@ -348,17 +353,27 @@ def number_of_trips(filename):
 
             if row['user_type'] == 'Subscriber':
                 n_subscribers += 1
+                len_sub_ride = float(row['duration'])
             else:
                 n_customers += 1
+                len_cus_ride = float(row['duration'])
         
         # compute total number of rides
         n_total = n_subscribers + n_customers
         
+        # compute total number of rides
+        n_total = n_subscribers + n_customers
+        per_subscribers = n_subscribers/n_total
+        per_customers = n_customers/n_total
+        
+        avg_sub_ride = len_sub_ride/n_subscribers
+        avg_cus_ride = len_cus_ride/n_customers
+        
         # return tallies as a tuple
-        return(n_subscribers, n_customers, n_total, total_duration_of_all_rides, number_of_longer_duration_trips)
+        return(n_subscribers, n_customers, n_total, total_duration_of_all_rides, number_of_longer_duration_trips, per_subscribers, per_customers, avg_sub_ride, avg_cus_ride)
 
 
-# In[19]:
+# In[16]:
 
 
 def largest_among(washington, chicago, nyc):
@@ -375,7 +390,7 @@ def largest_among(washington, chicago, nyc):
             print("NYC")
 
 
-# In[20]:
+# In[17]:
 
 
 washington_summary_file = './data/Washington-2016-Summary.csv'
@@ -388,7 +403,7 @@ nyc_summary_file = './data/NYC-2016-Summary.csv'
 nyc_trip_details = number_of_trips(nyc_summary_file)
 
 
-# In[21]:
+# In[10]:
 
 
 w_trip = w_trip_details[0]
@@ -397,7 +412,7 @@ nyc_trip = nyc_trip_details[0]
 largest_among(w_trip, c_trip, nyc_trip)
 
 
-# In[22]:
+# In[11]:
 
 
 w_trip = w_trip_details[1]
@@ -406,13 +421,31 @@ nyc_trip = nyc_trip_details[1]
 largest_among(w_trip, c_trip, nyc_trip)
 
 
-# In[23]:
+# In[12]:
 
 
 w_trip = w_trip_details[2]
 c_trip = c_trip_details[2]
 nyc_trip = nyc_trip_details[2]
 largest_among(w_trip, c_trip, nyc_trip)
+
+
+# In[22]:
+
+
+data_total_trips = {"washington":w_trip_details[2], "nyc": nyc_trip_details[2], "chicago": c_trip_details[2]}
+max_num_trips = max(data_total_trips, key=data_total_trips.get)
+print('{} has the max number of trips : {}'.format(max_num_trips, data_total_trips[max_num_trips]))
+
+
+per_sub = {"washington":w_trip_details[5], "nyc": nyc_trip_details[5], "chicago": c_trip_details[5]}
+max_per_sub =max(per_sub, key=per_sub.get)
+print('{} has the highest proportion of trips made by subscribers : {:.3%}'.format(max_per_sub, per_sub[max_per_sub]))
+
+
+per_cus = {"washington":w_trip_details[6], "nyc": nyc_trip_details[6], "chicago": c_trip_details[6]}
+max_per_cus =max(per_cus, key=per_cus.get)
+print('{} has the highest proportion of trips made by customer : {:.3%}'.format(max_per_cus, per_cus[max_per_cus]))
 
 
 # In[24]:
@@ -464,10 +497,10 @@ print("NYC has {} percent of long duration trips".format(percentage_of_long_dura
 
 # **Question 4c**: Dig deeper into the question of trip duration based on ridership. Choose one city. Within that city, which type of user takes longer rides on average: Subscribers or Customers?
 # 
-# **Answer**: In NYC the average Subscriber trip duration to be 63.474524661742294 minutes and the average Customer trip duration to be 84.55745393634842 minutes.
-# In NYC, Customers do more longer rides than Subscribers
+# **Answer**: 
+# In Chicago, Cutomer takes longer rides on average. The average Subscriber trip duration is approximately 12.07 minutes, The average customer trip duration is approximately 31 minutes
 
-# In[26]:
+# In[3]:
 
 
 ## Use this and additional cells to answer Question 4c. If you have    ##
@@ -479,7 +512,7 @@ print("NYC has {} percent of long duration trips".format(percentage_of_long_dura
 ## trip duration to be 54.6 minutes. Do the other cities have this     ##
 ## level of difference?                                                ##
 import csv
-def condense_data_for_long_rides(filename, usr_type):
+def condense_data_for_rides(filename, usr_type):
     """
     This function reads in a file with trip data and reports the number of
     trips made by subscribers, customers, and total overall.
@@ -489,36 +522,34 @@ def condense_data_for_long_rides(filename, usr_type):
         reader = csv.DictReader(f_in)
 
         # initialize count variables
-        total_long_ride_duration = 0.0
-        total_long_rides = 0
+        total_ride_duration = 0.0
+        total_rides = 0
 
-        long_duration = 30.0
         # tally up ride types
         for row in reader:
             if row['user_type'] == usr_type:
                 ride_duration = float(row['duration'])
-                if ride_duration > long_duration:
-                    total_long_rides += 1
-                    total_long_ride_duration += ride_duration
+                total_rides += 1
+                total_ride_duration += ride_duration
 
         # return tallies as a tuple
-        return(total_long_ride_duration, total_long_rides)
+        return(total_ride_duration, total_rides)
 
 
 # for Subscriber
 nyc_summary_file = './data/Chicago-2016-Summary.csv'
-long_ride_analysis_for_subscriber = condense_data_for_long_rides(nyc_summary_file, 'Subscriber')
-avg_long_ride_duration_by_subscriber = long_ride_analysis_for_subscriber[0]/long_ride_analysis_for_subscriber[1]
+ride_analysis_for_subscriber = condense_data_for_rides(nyc_summary_file, 'Subscriber')
+avg_ride_duration_by_subscriber = ride_analysis_for_subscriber[0]/ride_analysis_for_subscriber[1]
 
 # for Customer
-long_ride_analysis_for_customer = condense_data_for_long_rides(nyc_summary_file, 'Customer')
-avg_long_ride_duration_by_customer = long_ride_analysis_for_customer[0] / long_ride_analysis_for_customer[1]
+ride_analysis_for_customer = condense_data_for_rides(nyc_summary_file, 'Customer')
+avg_ride_duration_by_customer = ride_analysis_for_customer[0] / ride_analysis_for_customer[1]
 
-print("In Chicago the average Subscriber trip duration to be {} minutes and the average Customer trip duration to be {} minutes.".format(avg_long_ride_duration_by_subscriber, avg_long_ride_duration_by_customer))
-if avg_long_ride_duration_by_subscriber > avg_long_ride_duration_by_customer:
-    print("In Chicago, Subscribers do more longer rides than Customers")
+print("In Chicago the average Subscriber trip duration to be {} minutes and the average Customer trip duration to be {} minutes.".format(avg_ride_duration_by_subscriber, avg_ride_duration_by_customer))
+if avg_ride_duration_by_subscriber > avg_ride_duration_by_customer:
+    print("In Chicago, Subscribers do more rides than Customers")
 else:
-    print("In Chicago, Customers do more longer rides than Subscribers")
+    print("In Chicago, Customers do more rides than Subscribers")
 
 
 # <a id='visualizations'></a>
@@ -597,7 +628,10 @@ plt.show()
 # 
 # **Question 5**: Use the parameters of the `.hist()` function to plot the distribution of trip times for the Subscribers in your selected city. Do the same thing for only the Customers. Add limits to the plots so that only trips of duration less than 75 minutes are plotted. As a bonus, set the plots up so that bars are in five-minute wide intervals. For each group, where is the peak of each distribution? How would you describe the shape of each distribution?
 # 
-# **Answer**: Replace this text with your response!
+# **Answer**: 
+# For Chicago Subscriber Trip Durations, the peak is in 5-10 mins bins. 
+# For Chicago Customer Trip Durations, the peak is in 20-25 mins bin. 
+# Both histogram are positively skewed.
 
 # In[29]:
 
@@ -784,7 +818,7 @@ plt.show()
 # 
 # > Either way, once you've gotten the .html report in your workspace, you can complete your submission by clicking on the "Submit Project" button to the lower-right hand side of the workspace.
 
-# In[10]:
+# In[23]:
 
 
 from subprocess import call

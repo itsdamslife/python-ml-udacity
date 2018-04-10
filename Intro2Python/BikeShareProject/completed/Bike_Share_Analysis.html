@@ -11834,7 +11834,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## import all necessary packages and functions.</span>
@@ -11851,7 +11851,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_first_point</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -11979,7 +11979,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">duration_in_mins</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12022,7 +12022,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">time_of_trip</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12079,7 +12079,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">type_of_user</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12129,7 +12129,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">condense_data</span><span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12183,7 +12183,7 @@ OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Run this cell to check your work</span>
@@ -12254,13 +12254,14 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 <h3 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">&#182;</a></h3><p>First, let's compute some basic counts. The first cell below contains a function that uses the csv module to iterate through a provided data file, returning the number of trips made by subscribers and customers. The second cell runs this function on the example Bay Area data in the <code>/examples/</code> folder. Modify the cells to answer the question below.</p>
 <p><strong>Question 4a</strong>: Which city has the highest number of trips? Which city has the highest proportion of trips made by subscribers? Which city has the highest proportion of trips made by short-term customers?</p>
 <p><strong>Answer</strong>: NYC has the highest number of trips. NYC has the highest proportion of trips made by subscribers. NYC has the highest proportion of trips made by short-term customers.</p>
+<p>NYC has the maximum trips, the number is 276798 NYC has the highest proportion of trips made by subscribers, the pecentage is 89% (88.836%). Chicago has the highest proportion of trips made by customer, the pecentage is 24% (23.775%).</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">number_of_trips</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -12279,6 +12280,9 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
         <span class="n">total_duration_of_all_rides</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">long_duration</span> <span class="o">=</span> <span class="mf">30.0</span>
         <span class="n">number_of_longer_duration_trips</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">len_sub_ride</span> <span class="o">=</span><span class="mi">0</span>
+        <span class="n">len_cus_ride</span> <span class="o">=</span> <span class="mi">0</span>
+        
         <span class="c1"># tally up ride types</span>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
             <span class="n">total_duration_of_all_rides</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
@@ -12287,14 +12291,24 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 
             <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">:</span>
                 <span class="n">n_subscribers</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">len_sub_ride</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">n_customers</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">len_cus_ride</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
         
         <span class="c1"># compute total number of rides</span>
         <span class="n">n_total</span> <span class="o">=</span> <span class="n">n_subscribers</span> <span class="o">+</span> <span class="n">n_customers</span>
         
+        <span class="c1"># compute total number of rides</span>
+        <span class="n">n_total</span> <span class="o">=</span> <span class="n">n_subscribers</span> <span class="o">+</span> <span class="n">n_customers</span>
+        <span class="n">per_subscribers</span> <span class="o">=</span> <span class="n">n_subscribers</span><span class="o">/</span><span class="n">n_total</span>
+        <span class="n">per_customers</span> <span class="o">=</span> <span class="n">n_customers</span><span class="o">/</span><span class="n">n_total</span>
+        
+        <span class="n">avg_sub_ride</span> <span class="o">=</span> <span class="n">len_sub_ride</span><span class="o">/</span><span class="n">n_subscribers</span>
+        <span class="n">avg_cus_ride</span> <span class="o">=</span> <span class="n">len_cus_ride</span><span class="o">/</span><span class="n">n_customers</span>
+        
         <span class="c1"># return tallies as a tuple</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">n_subscribers</span><span class="p">,</span> <span class="n">n_customers</span><span class="p">,</span> <span class="n">n_total</span><span class="p">,</span> <span class="n">total_duration_of_all_rides</span><span class="p">,</span> <span class="n">number_of_longer_duration_trips</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">n_subscribers</span><span class="p">,</span> <span class="n">n_customers</span><span class="p">,</span> <span class="n">n_total</span><span class="p">,</span> <span class="n">total_duration_of_all_rides</span><span class="p">,</span> <span class="n">number_of_longer_duration_trips</span><span class="p">,</span> <span class="n">per_subscribers</span><span class="p">,</span> <span class="n">per_customers</span><span class="p">,</span> <span class="n">avg_sub_ride</span><span class="p">,</span> <span class="n">avg_cus_ride</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12304,7 +12318,7 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">largest_among</span><span class="p">(</span><span class="n">washington</span><span class="p">,</span> <span class="n">chicago</span><span class="p">,</span> <span class="n">nyc</span><span class="p">):</span>
@@ -12328,7 +12342,7 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">washington_summary_file</span> <span class="o">=</span> <span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span>
@@ -12348,7 +12362,7 @@ OrderedDict([(&#39;duration&#39;, &#39;13.983333333333333&#39;),
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">w_trip</span> <span class="o">=</span> <span class="n">w_trip_details</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -12383,7 +12397,7 @@ NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">w_trip</span> <span class="o">=</span> <span class="n">w_trip_details</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -12418,7 +12432,7 @@ NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">w_trip</span> <span class="o">=</span> <span class="n">w_trip_details</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -12453,7 +12467,52 @@ NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_total_trips</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;washington&quot;</span><span class="p">:</span><span class="n">w_trip_details</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;nyc&quot;</span><span class="p">:</span> <span class="n">nyc_trip_details</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;chicago&quot;</span><span class="p">:</span> <span class="n">c_trip_details</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span>
+<span class="n">max_num_trips</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">data_total_trips</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">data_total_trips</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has the max number of trips : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_num_trips</span><span class="p">,</span> <span class="n">data_total_trips</span><span class="p">[</span><span class="n">max_num_trips</span><span class="p">]))</span>
+
+
+<span class="n">per_sub</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;washington&quot;</span><span class="p">:</span><span class="n">w_trip_details</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;nyc&quot;</span><span class="p">:</span> <span class="n">nyc_trip_details</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;chicago&quot;</span><span class="p">:</span> <span class="n">c_trip_details</span><span class="p">[</span><span class="mi">5</span><span class="p">]}</span>
+<span class="n">max_per_sub</span> <span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">per_sub</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">per_sub</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has the highest proportion of trips made by subscribers : </span><span class="si">{:.3%}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_per_sub</span><span class="p">,</span> <span class="n">per_sub</span><span class="p">[</span><span class="n">max_per_sub</span><span class="p">]))</span>
+
+
+<span class="n">per_cus</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;washington&quot;</span><span class="p">:</span><span class="n">w_trip_details</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="s2">&quot;nyc&quot;</span><span class="p">:</span> <span class="n">nyc_trip_details</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="s2">&quot;chicago&quot;</span><span class="p">:</span> <span class="n">c_trip_details</span><span class="p">[</span><span class="mi">6</span><span class="p">]}</span>
+<span class="n">max_per_cus</span> <span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">per_cus</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">per_cus</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has the highest proportion of trips made by customer : </span><span class="si">{:.3%}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_per_cus</span><span class="p">,</span> <span class="n">per_cus</span><span class="p">[</span><span class="n">max_per_cus</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>nyc has the max number of trips : 276798
+nyc has the highest proportion of trips made by subscribers : 88.836%
+chicago has the highest proportion of trips made by customer : 23.775%
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Modify this and the previous cell to answer Question 4a. Remember to run ##</span>
@@ -12501,7 +12560,7 @@ Washington has 10.83888671109369 percent of long duration trips. Chicago has 8.3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 4b.                 ##</span>
@@ -12563,15 +12622,15 @@ NYC has 7.3024371563378345 percent of long duration trips
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 4c</strong>: Dig deeper into the question of trip duration based on ridership. Choose one city. Within that city, which type of user takes longer rides on average: Subscribers or Customers?</p>
-<p><strong>Answer</strong>: In NYC the average Subscriber trip duration to be 63.474524661742294 minutes and the average Customer trip duration to be 84.55745393634842 minutes.
-In NYC, Customers do more longer rides than Subscribers</p>
+<p><strong>Answer</strong>: 
+In Chicago, Cutomer takes longer rides on average. The average Subscriber trip duration is approximately 12.07 minutes, The average customer trip duration is approximately 31 minutes</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 4c. If you have    ##</span>
@@ -12583,7 +12642,7 @@ In NYC, Customers do more longer rides than Subscribers</p>
 <span class="c1">## trip duration to be 54.6 minutes. Do the other cities have this     ##</span>
 <span class="c1">## level of difference?                                                ##</span>
 <span class="kn">import</span> <span class="nn">csv</span>
-<span class="k">def</span> <span class="nf">condense_data_for_long_rides</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">usr_type</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">condense_data_for_rides</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">usr_type</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function reads in a file with trip data and reports the number of</span>
 <span class="sd">    trips made by subscribers, customers, and total overall.</span>
@@ -12593,36 +12652,34 @@ In NYC, Customers do more longer rides than Subscribers</p>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
 
         <span class="c1"># initialize count variables</span>
-        <span class="n">total_long_ride_duration</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="n">total_long_rides</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_ride_duration</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">total_rides</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="n">long_duration</span> <span class="o">=</span> <span class="mf">30.0</span>
         <span class="c1"># tally up ride types</span>
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">usr_type</span><span class="p">:</span>
                 <span class="n">ride_duration</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
-                <span class="k">if</span> <span class="n">ride_duration</span> <span class="o">&gt;</span> <span class="n">long_duration</span><span class="p">:</span>
-                    <span class="n">total_long_rides</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">total_long_ride_duration</span> <span class="o">+=</span> <span class="n">ride_duration</span>
+                <span class="n">total_rides</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">total_ride_duration</span> <span class="o">+=</span> <span class="n">ride_duration</span>
 
         <span class="c1"># return tallies as a tuple</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">total_long_ride_duration</span><span class="p">,</span> <span class="n">total_long_rides</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">total_ride_duration</span><span class="p">,</span> <span class="n">total_rides</span><span class="p">)</span>
 
 
 <span class="c1"># for Subscriber</span>
 <span class="n">nyc_summary_file</span> <span class="o">=</span> <span class="s1">&#39;./data/Chicago-2016-Summary.csv&#39;</span>
-<span class="n">long_ride_analysis_for_subscriber</span> <span class="o">=</span> <span class="n">condense_data_for_long_rides</span><span class="p">(</span><span class="n">nyc_summary_file</span><span class="p">,</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)</span>
-<span class="n">avg_long_ride_duration_by_subscriber</span> <span class="o">=</span> <span class="n">long_ride_analysis_for_subscriber</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">long_ride_analysis_for_subscriber</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ride_analysis_for_subscriber</span> <span class="o">=</span> <span class="n">condense_data_for_rides</span><span class="p">(</span><span class="n">nyc_summary_file</span><span class="p">,</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">)</span>
+<span class="n">avg_ride_duration_by_subscriber</span> <span class="o">=</span> <span class="n">ride_analysis_for_subscriber</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">ride_analysis_for_subscriber</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># for Customer</span>
-<span class="n">long_ride_analysis_for_customer</span> <span class="o">=</span> <span class="n">condense_data_for_long_rides</span><span class="p">(</span><span class="n">nyc_summary_file</span><span class="p">,</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
-<span class="n">avg_long_ride_duration_by_customer</span> <span class="o">=</span> <span class="n">long_ride_analysis_for_customer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">long_ride_analysis_for_customer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">ride_analysis_for_customer</span> <span class="o">=</span> <span class="n">condense_data_for_rides</span><span class="p">(</span><span class="n">nyc_summary_file</span><span class="p">,</span> <span class="s1">&#39;Customer&#39;</span><span class="p">)</span>
+<span class="n">avg_ride_duration_by_customer</span> <span class="o">=</span> <span class="n">ride_analysis_for_customer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">ride_analysis_for_customer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Chicago the average Subscriber trip duration to be </span><span class="si">{}</span><span class="s2"> minutes and the average Customer trip duration to be </span><span class="si">{}</span><span class="s2"> minutes.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_long_ride_duration_by_subscriber</span><span class="p">,</span> <span class="n">avg_long_ride_duration_by_customer</span><span class="p">))</span>
-<span class="k">if</span> <span class="n">avg_long_ride_duration_by_subscriber</span> <span class="o">&gt;</span> <span class="n">avg_long_ride_duration_by_customer</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Chicago, Subscribers do more longer rides than Customers&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Chicago the average Subscriber trip duration to be </span><span class="si">{}</span><span class="s2"> minutes and the average Customer trip duration to be </span><span class="si">{}</span><span class="s2"> minutes.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_ride_duration_by_subscriber</span><span class="p">,</span> <span class="n">avg_ride_duration_by_customer</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">avg_ride_duration_by_subscriber</span> <span class="o">&gt;</span> <span class="n">avg_ride_duration_by_customer</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Chicago, Subscribers do more rides than Customers&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Chicago, Customers do more longer rides than Subscribers&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In Chicago, Customers do more rides than Subscribers&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12639,8 +12696,8 @@ In NYC, Customers do more longer rides than Subscribers</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>In Chicago the average Subscriber trip duration to be 64.3201388888889 minutes and the average Customer trip duration to be 64.09878637429317 minutes.
-In Chicago, Subscribers do more longer rides than Customers
+<pre>In Chicago the average Subscriber trip duration to be 12.067201690250076 minutes and the average Customer trip duration to be 30.979781133982506 minutes.
+In Chicago, Customers do more rides than Subscribers
 </pre>
 </div>
 </div>
@@ -12661,7 +12718,7 @@ In Chicago, Subscribers do more longer rides than Customers
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load library</span>
@@ -12723,7 +12780,7 @@ In Chicago, Subscribers do more longer rides than Customers
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to collect all of the trip times as a list ##</span>
@@ -12796,14 +12853,17 @@ In Chicago, Subscribers do more longer rides than Customers
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>If you followed the use of the <code>.hist()</code> and <code>.show()</code> functions exactly like in the example, you're probably looking at a plot that's completely unexpected. The plot consists of one extremely tall bar on the left, maybe a very short second bar, and a whole lot of empty space in the center and right. Take a look at the duration values on the x-axis. This suggests that there are some highly infrequent outliers in the data. Instead of reprocessing the data, you will use additional parameters with the <code>.hist()</code> function to limit the range of data that is plotted. Documentation for the function can be found <a href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist">[here]</a>.</p>
 <p><strong>Question 5</strong>: Use the parameters of the <code>.hist()</code> function to plot the distribution of trip times for the Subscribers in your selected city. Do the same thing for only the Customers. Add limits to the plots so that only trips of duration less than 75 minutes are plotted. As a bonus, set the plots up so that bars are in five-minute wide intervals. For each group, where is the peak of each distribution? How would you describe the shape of each distribution?</p>
-<p><strong>Answer</strong>: Replace this text with your response!</p>
+<p><strong>Answer</strong>: 
+For Chicago Subscriber Trip Durations, the peak is in 5-10 mins bins. 
+For Chicago Customer Trip Durations, the peak is in 20-25 mins bin. 
+Both histogram are positively skewed.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 5. ##</span>
@@ -12915,7 +12975,7 @@ In Chicago, Subscribers do more longer rides than Customers
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
@@ -13086,7 +13146,7 @@ PDF (.pdf). You may need additional packages or software to perform these export
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -13103,7 +13163,7 @@ PDF (.pdf). You may need additional packages or software to perform these export
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[23]:</div>
 
 
 
