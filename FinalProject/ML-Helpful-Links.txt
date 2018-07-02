@@ -1,0 +1,29 @@
+
+
+----Machine learning----
+
+Helpful links
+
+http://fastml.com/how-much-data-is-enough/
+
+https://machinelearningmastery.com/much-training-data-required-machine-learning/
+
+https://stats.stackexchange.com/questions/19102/is-there-a-graphical-representation-of-bias-variance-tradeoff-in-linear-regressi
+
+http://scikit-learn.org/stable/auto_examples/model_selection/plot_underfitting_overfitting.html
+
+http://scott.fortmann-roe.com/docs/BiasVariance.html
+
+https://mkaz.blog/code/python-string-format-cookbook/
+
+https://www.datasciencecentral.com/profiles/blogs/regression-analysis-how-do-i-interpret-r-squared-and-assess-the
+
+
+http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
+
+https://towardsdatascience.com/train-test-split-and-cross-validation-in-python-80b61beca4b6
+
+http://scikit-learn.org/stable/modules/grid_search.html#grid-search
+
+http://scikit-learn.org/stable/modules/cross_validation.html
+
